@@ -1,0 +1,104 @@
+{
+    "class_name": "Model",
+    "config": {
+        "name": "model_1",
+        "layers": [
+            {
+                "name": "InputLayer_0",
+                "class_name": "InputLayer",
+                "config": {
+                    "batch_input_shape": [
+                        null,
+                        4
+                    ],
+                    "dtype": "float32",
+                    "sparse": false,
+                    "name": "InputLayer_0"
+                },
+                "inbound_nodes": []
+            },
+            {
+                "name": "Dense_0",
+                "class_name": "Dense",
+                "config": {
+                    "units": 100,
+                    "activation": "relu",
+                    "use_bias": true,
+                    "kernel_initializer": {
+                        "class_name": "VarianceScaling",
+                        "config": {
+                            "scale": 1,
+                            "mode": "fan_avg",
+                            "distribution": "uniform"
+                        }
+                    },
+                    "bias_initializer": {
+                        "class_name": "Zeros",
+                        "config": {}
+                    },
+                    "name": "Dense_0",
+                    "trainable": true
+                },
+                "inbound_nodes": [
+                    [
+                        [
+                            "InputLayer_0",
+                            0,
+                            0,
+                            {}
+                        ]
+                    ]
+                ]
+            },
+            {
+                "name": "Dense_1",
+                "class_name": "Dense",
+                "config": {
+                    "units": 3,
+                    "activation": "linear",
+                    "use_bias": true,
+                    "kernel_initializer": {
+                        "class_name": "VarianceScaling",
+                        "config": {
+                            "scale": 1,
+                            "mode": "fan_avg",
+                            "distribution": "uniform"
+                        }
+                    },
+                    "bias_initializer": {
+                        "class_name": "Zeros",
+                        "config": {}
+                    },
+                    "name": "Dense_1",
+                    "trainable": true
+                },
+                "inbound_nodes": [
+                    [
+                        [
+                            "Dense_0",
+                            0,
+                            0,
+                            {}
+                        ]
+                    ]
+                ]
+            }
+        ],
+        "input_layers": [
+            [
+                "InputLayer_0",
+                0,
+                0
+            ]
+        ],
+        "output_layers": [
+            [
+                "Dense_1",
+                0,
+                0
+            ]
+        ]
+    },
+    "keras_version": "tfjs-layers 1.1.0",
+    "backend": "tensor_flow.js"
+}
