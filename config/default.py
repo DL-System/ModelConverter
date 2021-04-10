@@ -166,8 +166,20 @@ default_cy = {
 
 default_node = {
     "data": {},
-    "position": {"x": None, "y": None},
+    "position": {"x": 101, "y": None},
     "group": "nodes",
+    "removed": False,
+    "selected": False,
+    "selectable": True,
+    "locked": False,
+    "grabbable": True,
+    "classes": "",
+}
+
+default_edge = {
+    "data": {},
+    "position": {},
+    "group": "edges",
     "removed": False,
     "selected": False,
     "selectable": True,

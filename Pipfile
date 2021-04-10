@@ -4,6 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+tensorflow = "==1.15.0"
+h5py = "==2.10.0"
 
 [dev-packages]
 
