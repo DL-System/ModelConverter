@@ -2,6 +2,7 @@ import json
 import copy
 import os
 import sys
+import shutil
 import uuid
 import argparse
 
@@ -114,6 +115,8 @@ def createEdges(ids):
 
 
 if __name__ == "__main__":
+    root_path = os.getenv("DATA_ROOT_PATH") or "."
+
     parser = argparse.ArgumentParser(description="Model Converter for System.")
 
     parser.add_argument(
@@ -133,7 +136,14 @@ if __name__ == "__main__":
     else:
         model_path = args.model_path
 
-    files_path = os.path.dirname(os.path.abspath(model_path))
+    files_path = os.path.join(
+        os.path.abspath(root_path), "test", "models", args.model_name
+    )
+
+    if os.path.isdir(files_path):
+        sys.exit("Please input a different model name!")
+    else:
+        os.makedirs(files_path)
 
     model = keras.models.load_model(model_path)
 
@@ -172,6 +182,11 @@ if __name__ == "__main__":
             c.write("log_dir = {}\n".format(os.path.join(files_path, "log")))
             c.write("tmp_dir = {}\n".format(os.path.join(files_path, "tmp")))
             c.write("data_path = {}\n".format(pkl_path))
+
+        model_dest = os.path.join(root_path, "backup", args.model_name + ".h5")
+        print(f"Move the model source to {model_dest}!")
+        os.makedirs(os.path.join(root_path, "backup"), exist_ok=True)
+        shutil.move(model_path, model_dest)
 
     else:
         print(json.dumps(model_TFjs))
