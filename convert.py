@@ -117,6 +117,8 @@ def createEdges(ids):
 if __name__ == "__main__":
     root_path = os.getenv("DATA_ROOT_PATH") or "."
 
+    os.chdir(root_path)
+
     parser = argparse.ArgumentParser(description="Model Converter for System.")
 
     parser.add_argument(
@@ -127,7 +129,7 @@ if __name__ == "__main__":
         "-p", "--model", dest="model_path", default=None, help="Model Path"
     )
 
-    parser.add_argument("-g", "--generate", action="store_true")
+    parser.add_argument("-g", "--generate", action="store_true", help="Generate files")
 
     args = parser.parse_args()
 
@@ -141,7 +143,11 @@ if __name__ == "__main__":
     )
 
     if os.path.isdir(files_path):
-        sys.exit("Please input a different model name!")
+        sys.exit(
+            "Please input a different model name!\nBecause the folder ({}) exists!".format(
+                os.path.join("test", "models", args.model_name)
+            )
+        )
     else:
         os.makedirs(files_path)
 
