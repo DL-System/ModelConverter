@@ -142,15 +142,6 @@ if __name__ == "__main__":
         os.path.abspath(root_path), "test", "models", args.model_name
     )
 
-    if os.path.isdir(files_path):
-        sys.exit(
-            "Please input a different model name!\nBecause the folder ({}) exists!".format(
-                os.path.join("test", "models", args.model_name)
-            )
-        )
-    else:
-        os.makedirs(files_path)
-
     model = keras.models.load_model(model_path)
 
     model_TFjs = convertToTFjs(model)
@@ -158,6 +149,15 @@ if __name__ == "__main__":
     model_cy = convertToCy(model)
 
     if args.generate:
+        if os.path.isdir(files_path):
+            sys.exit(
+                "Please input a different model name!\nBecause the folder ({}) exists!".format(
+                    os.path.join("test", "models", args.model_name)
+                )
+            )
+        else:
+            os.makedirs(files_path)
+
         pkl_path = os.path.join(files_path, args.model_name + ".pkl")
         open(pkl_path, "a").close()
         paths = ["checkpoints", "custom", "log", "tmp"]
