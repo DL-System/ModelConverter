@@ -6,6 +6,8 @@ import shutil
 import uuid
 import argparse
 
+import dill as pickle
+
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
 from tensorflow import keras
@@ -159,7 +161,9 @@ if __name__ == "__main__":
             os.makedirs(files_path)
 
         pkl_path = os.path.join(files_path, args.model_name + ".pkl")
-        open(pkl_path, "a").close()
+        with open(pkl_path, "wb") as p:
+            pickle.dump(None, p)
+
         paths = ["checkpoints", "custom", "log", "tmp"]
         for p in paths:
             os.makedirs(os.path.join(files_path, p), exist_ok=True)
