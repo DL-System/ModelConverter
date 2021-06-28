@@ -1,12 +1,10 @@
-import json
-import copy
-import os
-import sys
-import shutil
-import uuid
 import argparse
-
-import dill as pickle
+import copy
+import json
+import os
+import shutil
+import sys
+import uuid
 
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
@@ -160,10 +158,6 @@ if __name__ == "__main__":
         else:
             os.makedirs(files_path)
 
-        pkl_path = os.path.join(files_path, args.model_name + ".pkl")
-        with open(pkl_path, "wb") as p:
-            pickle.dump(None, p)
-
         paths = ["checkpoints", "custom", "log", "tmp"]
         for p in paths:
             os.makedirs(os.path.join(files_path, p), exist_ok=True)
@@ -191,7 +185,6 @@ if __name__ == "__main__":
             )
             c.write("log_dir = {}\n".format(os.path.join(files_path, "log")))
             c.write("tmp_dir = {}\n".format(os.path.join(files_path, "tmp")))
-            c.write("data_path = {}\n".format(pkl_path))
 
         model_dest = os.path.join(root_path, "backup", args.model_name + ".h5")
         print(f"Move the model source to {model_dest}!")
