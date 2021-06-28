@@ -195,12 +195,12 @@ layers_dict = {
                 "options": ["valid", "causal", "same"],
                 "value": "valid",
             },
-            "dataFormat": {
+            "data_format": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
             },
-            "dilationRate": {"type": "integer_list", "value": None},
+            "dilation_rate": {"type": "integer_list", "value": None},
             "activation": {
                 "type": "select",
                 "options": [
@@ -287,12 +287,12 @@ layers_dict = {
                 "options": ["valid", "causal", "same"],
                 "value": "valid",
             },
-            "dataFormat": {
+            "data_format": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
             },
-            "dilationRate": {"type": "integer_list", "value": None},
+            "dilation_rate": {"type": "integer_list", "value": None},
             "activation": {
                 "type": "select",
                 "options": [
@@ -379,12 +379,12 @@ layers_dict = {
                 "options": ["valid", "causal", "same"],
                 "value": "valid",
             },
-            "dataFormat": {
+            "data_format": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
             },
-            "dilationRate": {"type": "integer_list", "value": None},
+            "dilation_rate": {"type": "integer_list", "value": None},
             "activation": {
                 "type": "select",
                 "options": [
@@ -471,12 +471,12 @@ layers_dict = {
                 "options": ["valid", "causal", "same"],
                 "value": "valid",
             },
-            "dataFormat": {
+            "data_format": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
             },
-            "dilationRate": {"type": "integer_list", "value": None},
+            "dilation_rate": {"type": "integer_list", "value": None},
             "activation": {
                 "type": "select",
                 "options": [
@@ -563,12 +563,12 @@ layers_dict = {
                 "options": ["valid", "causal", "same"],
                 "value": "valid",
             },
-            "dataFormat": {
+            "data_format": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
             },
-            "dilationRate": {"type": "integer_list", "value": None},
+            "dilation_rate": {"type": "integer_list", "value": None},
             "activation": {
                 "type": "select",
                 "options": [
@@ -648,7 +648,7 @@ layers_dict = {
         },
         "Cropping2D": {
             "axes": {"type": "integer_list", "value": "[0]"},
-            "dataFormat": {
+            "data_format": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
@@ -664,12 +664,12 @@ layers_dict = {
                 "options": ["valid", "causal", "same"],
                 "value": "valid",
             },
-            "dataFormat": {
+            "data_format": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
             },
-            "dilationRate": {"type": "integer_list", "value": None},
+            "dilation_rate": {"type": "integer_list", "value": None},
             "depth_multiplier": {"type": "integer", "value": 1, "min": 1},
             "activation": {
                 "type": "select",
@@ -778,7 +778,7 @@ layers_dict = {
         },
         "UpSampling2D": {
             "size": {"type": "integer_list", "value": "[2,2]"},
-            "dataFormat": {
+            "data_format": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,

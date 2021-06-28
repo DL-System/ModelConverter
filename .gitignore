@@ -129,10 +129,5 @@ dmypy.json
 .pyre/
 
 .idea/
-test/config.ini
-test/checkpoints
-test/custom
-test/log
-test/tmp
-test/model_cy.json
+test/
 *.pkl
