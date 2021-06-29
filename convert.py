@@ -202,19 +202,19 @@ if __name__ == "__main__":
         ) as c:
             json.dump(model_cy, c, indent=4, separators=(",", ":"))
 
-        with open(os.path.join(files_path, "config.ini"), "w") as c:
-            c.write("[PATHS]\n")
-            c.write(
-                "checkpoint_dir = {}\n".format(os.path.join(files_path, "checkpoints"))
-            )
-            c.write("custom_model = {}\n".format(os.path.join(files_path, "custom")))
-            c.write(
-                "export_dir = {}\n".format(
-                    os.path.join(files_path, "checkpoints", "export", "best_exporter")
-                )
-            )
-            c.write("log_dir = {}\n".format(os.path.join(files_path, "log")))
-            c.write("tmp_dir = {}\n".format(os.path.join(files_path, "tmp")))
+        # with open(os.path.join(files_path, "config.ini"), "w") as c:
+        #     c.write("[PATHS]\n")
+        #     c.write(
+        #         "checkpoint_dir = {}\n".format(os.path.join(files_path, "checkpoints"))
+        #     )
+        #     c.write("custom_model = {}\n".format(os.path.join(files_path, "custom")))
+        #     c.write(
+        #         "export_dir = {}\n".format(
+        #             os.path.join(files_path, "checkpoints", "export", "best_exporter")
+        #         )
+        #     )
+        #     c.write("log_dir = {}\n".format(os.path.join(files_path, "log")))
+        #     c.write("tmp_dir = {}\n".format(os.path.join(files_path, "tmp")))
 
         model_dest = os.path.join(root_path, "backup", args.model_name + ".h5")
         print(f"Move the model source to {model_dest}!")
