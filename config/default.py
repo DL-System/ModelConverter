@@ -176,6 +176,45 @@ default_node = {
     "classes": "",
 }
 
+default_loss = {
+    "data": {
+        "name": "Loss_0",
+        "class_name": "Loss",
+        "root": "Loss Functions",
+        "weight": 75,
+        "content": {
+            "function": {
+                "type": "select",
+                "options": [
+                    "mean_squared_error",
+                    "absolute_difference",
+                    "cosine_distance",
+                    "hinge_loss",
+                    "huber_loss",
+                    "log_loss",
+                    "sigmoid_cross_entropy",
+                    "softmax_cross_entropy",
+                    "sparse_softmax_cross_entropy",
+                    "mean_pairwise_squared_error",
+                ],
+                "value": "sigmoid_cross_entropy",
+            },
+            "class_name": "Loss",
+            "name": {"type": "text", "value": "Loss_0"},
+        },
+        "id": None,
+        "depth": None,
+    },
+    "position": {"x": 101, "y": None},
+    "group": "nodes",
+    "removed": False,
+    "selected": True,
+    "selectable": True,
+    "locked": False,
+    "grabbable": True,
+    "classes": "eh-preview-active",
+}
+
 default_edge = {
     "data": {},
     "position": {},

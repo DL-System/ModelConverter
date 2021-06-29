@@ -195,12 +195,12 @@ layers_dict = {
                 "options": ["valid", "causal", "same"],
                 "value": "valid",
             },
-            "data_format": {
+            "dataFormat": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
             },
-            "dilation_rate": {"type": "integer_list", "value": None},
+            "dilationRate": {"type": "integer_list", "value": None},
             "activation": {
                 "type": "select",
                 "options": [
@@ -287,12 +287,12 @@ layers_dict = {
                 "options": ["valid", "causal", "same"],
                 "value": "valid",
             },
-            "data_format": {
+            "dataFormat": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
             },
-            "dilation_rate": {"type": "integer_list", "value": None},
+            "dilationRate": {"type": "integer_list", "value": None},
             "activation": {
                 "type": "select",
                 "options": [
@@ -379,12 +379,12 @@ layers_dict = {
                 "options": ["valid", "causal", "same"],
                 "value": "valid",
             },
-            "data_format": {
+            "dataFormat": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
             },
-            "dilation_rate": {"type": "integer_list", "value": None},
+            "dilationRate": {"type": "integer_list", "value": None},
             "activation": {
                 "type": "select",
                 "options": [
@@ -471,12 +471,12 @@ layers_dict = {
                 "options": ["valid", "causal", "same"],
                 "value": "valid",
             },
-            "data_format": {
+            "dataFormat": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
             },
-            "dilation_rate": {"type": "integer_list", "value": None},
+            "dilationRate": {"type": "integer_list", "value": None},
             "activation": {
                 "type": "select",
                 "options": [
@@ -563,12 +563,12 @@ layers_dict = {
                 "options": ["valid", "causal", "same"],
                 "value": "valid",
             },
-            "data_format": {
+            "dataFormat": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
             },
-            "dilation_rate": {"type": "integer_list", "value": None},
+            "dilationRate": {"type": "integer_list", "value": None},
             "activation": {
                 "type": "select",
                 "options": [
@@ -648,7 +648,7 @@ layers_dict = {
         },
         "Cropping2D": {
             "axes": {"type": "integer_list", "value": "[0]"},
-            "data_format": {
+            "dataFormat": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
@@ -664,12 +664,12 @@ layers_dict = {
                 "options": ["valid", "causal", "same"],
                 "value": "valid",
             },
-            "data_format": {
+            "dataFormat": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
             },
-            "dilation_rate": {"type": "integer_list", "value": None},
+            "dilationRate": {"type": "integer_list", "value": None},
             "depth_multiplier": {"type": "integer", "value": 1, "min": 1},
             "activation": {
                 "type": "select",
@@ -778,7 +778,7 @@ layers_dict = {
         },
         "UpSampling2D": {
             "size": {"type": "integer_list", "value": "[2,2]"},
-            "data_format": {
+            "dataFormat": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
@@ -973,7 +973,7 @@ layers_dict = {
                 "options": ["valid", "causal", "same"],
                 "value": "valid",
             },
-            "data_format": {
+            "dataFormat": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
@@ -991,7 +991,7 @@ layers_dict = {
             "class_name": "GlobalAveragePooling1D",
         },
         "GlobalAveragePooling2D": {
-            "data_format": {
+            "dataFormat": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
@@ -1009,7 +1009,7 @@ layers_dict = {
             "class_name": "GlobalMaxPooling1D",
         },
         "GlobalMaxPooling2D": {
-            "data_format": {
+            "dataFormat": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,
@@ -1034,7 +1034,7 @@ layers_dict = {
                 "options": ["valid", "causal", "same"],
                 "value": "valid",
             },
-            "data_format": {
+            "dataFormat": {
                 "type": "select",
                 "options": [None, "channels_last", "channels_first"],
                 "value": None,

@@ -9,7 +9,7 @@ import uuid
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
 from tensorflow import keras
-from config.default import default_cy, default_node, default_edge
+from config.default import default_cy, default_node, default_edge, default_loss
 from config.layers import layers_dict
 
 KERAS_VERSION = "2.2.4"
@@ -18,6 +18,11 @@ depth, position_y = 0, 21
 
 
 def convertToTFjs(model):
+    """
+    convert model file to model_tfjs.json
+    :param model: model saved by keras
+    :return: model_tfjs.json
+    """
     model_TFjs = {}
     model_json = json.loads(model.to_json())
     model_json["keras_version"] = KERAS_VERSION
@@ -27,6 +32,11 @@ def convertToTFjs(model):
 
 
 def convertToCy(model):
+    """
+    convert model file to model_cy.json
+    :param model: model saved by keras
+    :return: model_cy.json
+    """
     model_cy = copy.deepcopy(default_cy)
 
     layers = model.layers
@@ -42,12 +52,19 @@ def convertToCy(model):
 
         model_cy["elements"]["nodes"].append(node)
 
+    layer_loss = copy.deepcopy(default_loss)
+    layer_loss["data"]["id"] = str(uuid.uuid1())
+    layer_loss["data"]["depth"] = depth
+    layer_loss["position"]["y"] = position_y
+    ids.append(layer_loss["data"]["id"])
+    model_cy["elements"]["nodes"].append(layer_loss)
+
     edges = createEdges(ids)
     model_cy["elements"]["edges"] = edges
 
     return model_cy
 
-    ## TODO: 2. update edges
+    # TODO: 2. update edges
 
 
 def createNode(layer_config, config):
@@ -56,12 +73,13 @@ def createNode(layer_config, config):
     node["position"]["y"] = position_y
     position_y += 90
 
-    data = {}
-    data["name"] = config["name"]
-    data["class_name"] = config["class_name"]
-    data["weight"] = 75
-    data["id"] = str(uuid.uuid1())
-    data["depth"] = depth
+    data = {
+        "name": config["name"],
+        "class_name": config["class_name"],
+        "weight": 75,
+        "id": str(uuid.uuid1()),
+        "depth": depth,
+    }
     depth += 1
 
     for root, classes in layers_dict.items():
@@ -76,7 +94,19 @@ def createNode(layer_config, config):
     for con in data["content"]:
         if con == "input_shape":
             data["content"][con]["value"] = [
-                l for l in layer_config["batch_input_shape"] if l
+                lc for lc in layer_config["batch_input_shape"] if lc
+            ]
+        elif con == "dataFormat":
+            data["content"][con]["value"] = [
+                lc for lc in layer_config["data_format"] if lc
+            ]
+        elif con == "dataFormat":
+            data["content"][con]["value"] = [
+                lc for lc in layer_config["data_format"] if lc
+            ]
+        elif con == "dilationRate":
+            data["content"][con]["value"] = [
+                lc for lc in layer_config["dilation_rate"] if lc
             ]
         elif not isinstance(data["content"][con], dict):
             continue
